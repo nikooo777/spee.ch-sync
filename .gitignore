@@ -4,3 +4,4 @@ db/schema.sql
 config/sequelizeCliConfig.js
 config/syncConfig.js
 config/slackLoggerConfig.js
+config/bitcoinConfig.js
