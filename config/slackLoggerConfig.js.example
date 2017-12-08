@@ -1,6 +1,6 @@
-const SLACK_WEB_HOOK =  'https://hooks.slack.com/services/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';
-const SLACK_ERROR_CHANNEL = '#dev_speech-errors';
-const SLACK_INFO_CHANNEL = null;
+const SLACK_WEB_HOOK = ''; // insert webhook from slack
+const SLACK_ERROR_CHANNEL = '#example-errors';  // choose slack channel for errors to post to, or null
+const SLACK_INFO_CHANNEL = '#example-tests'; // choose slack channel for info to post to, or null
 
 const winstonSlackWebHook = require('winston-slack-webhook').SlackWebHook;
 

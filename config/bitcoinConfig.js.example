@@ -1,7 +1,7 @@
 module.exports={
   host: 'localhost',
   port: 9245,
-  user: 'lbryrpc',
-  pass: 'SPl7Y01E4KnlFlFQfuuY',
+  user: 'lbry',
+  pass: 'lbry',
   timeout: 30000
 }
