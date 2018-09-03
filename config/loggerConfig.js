@@ -1,15 +1,15 @@
 module.exports = (winston, logLevel) => {
   winston.configure({
     transports: [
-      new (winston.transports.Console)({
-        level                          : logLevel,
-        timestamp                      : false,
-        colorize                       : true,
-        prettyPrint                    : true,
-        handleExceptions               : true,
-        humanReadableUnhandledException: true,
-      }),
-    ],
+      new winston.transports.Console({
+        level: logLevel,
+        timestamp: false,
+        colorize: true,
+        prettyPrint: true,
+        handleExceptions: true,
+        humanReadableUnhandledException: true
+      })
+    ]
   });
 
   winston.error('Level 0');
