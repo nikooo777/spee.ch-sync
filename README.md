@@ -7,8 +7,9 @@ This repo is a fork of [lighthouse-sync](https://github.com/filipnyquist/lightho
 ### clone & this repo
 
 ```
-git clone https://github.com/billbitt/spee.ch-sync
-npm install
+git clone https://github.com/nikooo777/spee.ch-sync
+cd spee.ch-sync
+yarn install
 ```
 
 ### start mysql
