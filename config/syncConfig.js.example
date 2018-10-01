@@ -1,4 +1,5 @@
 module.exports = {
-  startHeight: 0,  // block to start syncing on
-  throttle: 5000,  // time between each call to the daemon (in ms)
+    startHeight: 0, // block to start syncing on
+    throttle: 500, // time between each call to the daemon (in ms)
+    allowedChannels: [],
 };

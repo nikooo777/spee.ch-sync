@@ -19,10 +19,10 @@
     "winston-slack-webhook": "github:billbitt/winston-slack-webhook"
   },
   "name": "lbry-speech-sync",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A sync tool, which syncs free claims from the LBRY chain into mysql",
   "main": "sync.js",
-  "repository": "https://github.com/billbitt/spee.ch-sync.git",
+  "repository": "https://github.com/nikooo777/spee.ch-sync.git",
   "author": "@filipnyquist and @billbitt maintained by @Nikooo777",
   "license": "MIT"
 }

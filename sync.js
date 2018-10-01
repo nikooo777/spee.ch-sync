@@ -7,7 +7,8 @@ const logger = require('winston');
 const client = new bitcoin.Client(bitcoinConfig);
 let claimsSynced = 0;
 let maxHeight;
-const startHeight = require('./config/syncConfig.js').startHeight || 0;
+const syncConfig = require('./config/syncConfig.js');
+const startHeight = syncConfig.startHeight || 0;
 
 require('./config/loggerConfig.js')(logger, 'debug'); //configure winston
 require('./config/slackLoggerConfig.js')(logger);
@@ -48,7 +49,8 @@ function isStreamType(claim) {
 
 function isCertificateType({ name, value }) {
   logger.debug(`checking isCertificateType? ${name} ${value.claimType}`);
-  return value.claimType === 'certificateType';
+  return value.claimType === 'certificateType' &&
+      syncConfig.allowedChannels.includes(value.claim_id);
 }
 
 function isFree({ value }) {
@@ -160,10 +162,15 @@ async function send(arr) {
   // Modular change output here :)
   for (let i = 0; i < arr.length; i++) {
     let claim = arr[i];
-    if ((isStreamType(claim) && isFree(claim)) || isCertificateType(claim)) {
+    if ((isStreamType(claim) && isFree(claim) && isAntimedia(claim)) || isCertificateType(claim)) {
       await resolveAndStoreClaim(claim);
     }
   }
+}
+
+function isAntimedia(claim){
+    return claim.value.hasOwnProperty('publisherSignature') &&
+        syncConfig.allowedChannels.includes(claim.value.publisherSignature.certificateId);
 }
 
 logger.verbose(chalk.green.underline.bold('Running Spee.chSync'));
